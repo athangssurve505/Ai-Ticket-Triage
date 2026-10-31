@@ -1,9 +1,13 @@
 import express from "express";
+import { ticketRouter } from "./routes/ticket.route.js";
+import { aiRouter } from "./routes/ai.route.js";
 
 
 const app = express();
 
 app.use(express.json());
+app.use("/api/ticket", ticketRouter);
+app.use("/api/ai", aiRouter);
 
 app.get("/",(req,res)=>{
     res.send("API is running ");
