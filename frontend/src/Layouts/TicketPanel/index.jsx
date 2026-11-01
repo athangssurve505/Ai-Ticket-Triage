@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import api from "../../services/api";
+import NewTicketModal from "../../Components/TicketCard/NewTicketModal";
 import Button from "../../shared/Components/Button"
 import TicketCard from "../../Components/TicketCard"
 
 import "./ticketpanel.css";
-import TicketDetails from "../TicketDetails";
+
 
 const TicketsPanel = ({
   tickets,
   selectedTicket,
   onSelectTicket,
   loading,
+  onTicketCreated,
 }) => {
+
+  const [showNewTicketModal, setShowNewTicketModal] = useState(false);
   return (
     <section className="tickets-panel">
 
@@ -22,11 +25,17 @@ const TicketsPanel = ({
           <p>Manage and analyze customer support tickets</p>
         </div>
 
-        <Button icon="RiAddLine">
+        <Button icon="RiAddLine"   onClick={() => setShowNewTicketModal(true)}>
           New Ticket
         </Button>
       </div>
 
+      {showNewTicketModal && (
+   <NewTicketModal
+    onClose={() => setShowNewTicketModal(false)}
+    onTicketCreated={onTicketCreated}
+   />
+    )}
       <div className="tickets-list">
 
         {loading && <p>Loading tickets...</p>}

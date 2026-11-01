@@ -49,6 +49,13 @@ const handleTicketDeleted = (deletedTicketId) => {
   setTickets(updatedTickets);
   setSelectedTicket(updatedTickets[0] || null);
 };
+
+const handleTicketCreated = (newTicket) => {
+  setTickets((prev) => [newTicket, ...prev]);
+  setSelectedTicket(newTicket);
+};
+
+
   useEffect(() => {
     fetchTickets();
   }, []);
@@ -60,11 +67,12 @@ const handleTicketDeleted = (deletedTicketId) => {
       <main className="dashboard-layout">
 
         <TicketsPanel
-          tickets={tickets}
-          selectedTicket={selectedTicket}
-          onSelectTicket={setSelectedTicket}
-          loading={loading}
-        />
+  tickets={tickets}
+  selectedTicket={selectedTicket}
+  onSelectTicket={setSelectedTicket}
+  loading={loading}
+  onTicketCreated={handleTicketCreated}
+/>
 
     <TicketDetails
   ticket={selectedTicket}
