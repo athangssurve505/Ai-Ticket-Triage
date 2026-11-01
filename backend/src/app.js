@@ -7,7 +7,7 @@ import cors from "cors";
 const app = express();
 
 app.use(cors({
-    origin: "https://ai-ticket-triage-seven.vercel.app",
+    origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true
 }));
