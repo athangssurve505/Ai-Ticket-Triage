@@ -1,0 +1,128 @@
+.tickets-panel {
+  width: 100%;
+  min-width: 0;
+  padding: 22px;
+
+  height: calc(100vh - var(--navbar-height) - 48px);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+}
+
+/* Header */
+
+.tickets-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 24px;
+}
+
+.tickets-heading h2 {
+  color: var(--text-primary);
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.tickets-heading p {
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+}
+
+/* Cards */
+
+.tickets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .tickets-panel {
+    padding: 15px;
+  }
+
+  .tickets-header {
+    align-items: flex-start;
+  }
+
+  .tickets-heading h2 {
+    font-size: 20px;
+  }
+
+  .tickets-heading p {
+    font-size: 12px;
+  }
+
+  .ticket-card {
+    gap: 10px;
+    padding: 13px 10px;
+  }
+
+  .ticket-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ticket-info h3 {
+    font-size: 13px;
+  }
+
+  .ticket-meta {
+    font-size: 11px;
+  }
+
+  .status-badge,
+  .priority-badge {
+    min-width: 72px;
+    padding: 5px 7px;
+    font-size: 11px;
+  }
+}
+
+
+.tickets-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tickets-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tickets-panel::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: var(--radius-full);
+}
+
+.tickets-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+
+/* Loading and Error */
+.tickets-message {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.tickets-message.error {
+  color: var(--danger);
+}
+
+.tickets-message button {
+  display: block;
+  margin: 12px auto;
+  padding: 8px 16px;
+  color: white;
+  background: var(--primary);
+  border-radius: var(--radius-md);
+}

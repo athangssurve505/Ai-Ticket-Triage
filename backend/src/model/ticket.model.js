@@ -50,6 +50,8 @@ const ticketSchema = new mongoose.Schema({
         type: Date
     }
 }
+},{
+  timestamps:true
 });
 
 // Create the model using the schema
